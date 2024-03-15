@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.CookMatch" parent="Base.Theme.CookMatch" />
+    <style name="SearchBarStyle" parent="Widget.AppCompat.SearchView">
+        <!--<item name="searchIcon">@drawable/your_icon</item>-->
+        <!--<item name="searchHintIcon">@drawable/your_hint_icon</item>-->
+        <item name="android:textColorHint">@color/white</item>
+        <!--<item name="queryBackground">@drawable/your_background</item>-->
+    </style>
 </resources>
