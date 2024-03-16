@@ -12,4 +12,5 @@
         <item name="android:textColorHint">@color/white</item>
         <!--<item name="queryBackground">@drawable/your_background</item>-->
     </style>
+
 </resources>
