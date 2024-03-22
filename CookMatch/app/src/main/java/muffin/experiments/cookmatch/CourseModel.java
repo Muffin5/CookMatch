@@ -3,7 +3,7 @@ package muffin.experiments.cookmatch;
 public class CourseModel {
     private String course_name;
     private int course_rating;
-    private int course_image;
+    private int course_image = R.drawable.imagegegege;
 
     // Constructor
     public CourseModel(String course_name, int course_rating) {

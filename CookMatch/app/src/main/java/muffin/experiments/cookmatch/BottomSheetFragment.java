@@ -36,7 +36,7 @@ public class BottomSheetFragment extends Fragment {
         // Here, we have created new array list and added data to it
         ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
         courseModelArrayList.add(new CourseModel("DSA in Java", 4));
-        courseModelArrayList.add(new CourseModel("Java Course", 3));
+        courseModelArrayList.add(new CourseModel("Java Course", 4));
         courseModelArrayList.add(new CourseModel("C++ Course", 4));
         courseModelArrayList.add(new CourseModel("DSA in C++", 4));
         courseModelArrayList.add(new CourseModel("Kotlin for Android", 4));
