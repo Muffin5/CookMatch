@@ -3,7 +3,11 @@ package muffin.experiments.cookmatch;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -16,18 +20,31 @@ import muffin.experiments.cookmatch.databinding.ActivityHomeBinding;
 
 public class Home extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        replaceFragment(new HomeFragment());
+
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+
+        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
+            if(item.getItemId() == R.id.nav_home){
+                replaceFragment(new HomeFragment());
+            } else if (item.getItemId() == R.id.nav_favourite) {
+                replaceFragment(new FavouriteFragment());
+            } else if (item.getItemId() == R.id.nav_profile) {
+                replaceFragment(new ProfileFragment());
+            }
+            return true;
+        });
+
 
         //DatabaseReference num = FirebaseDatabase.getInstance().getReference("Numbers");
         //num.child("numer").setValue("12");
 
-        final BottomSheetFragment bottomFragment = new BottomSheetFragment();
+        /*final BottomSheetFragment bottomFragment = new BottomSheetFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerBottomSheet, bottomFragment)
                 .commit();
@@ -56,5 +73,22 @@ public class Home extends AppCompatActivity {
                 //num.child("pora").setValue("spat");
             }
         });
+
+        binding.searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), Search.class);
+                startActivity(intent);
+            }
+        });
+
+         */
+    }
+
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.place_holder, fragment);
+        fragmentTransaction.commit();
     }
 }

@@ -7,9 +7,16 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
+import java.util.ArrayList;
+
+import muffin.experiments.cookmatch.databinding.FragmentBottomSheetBinding;
 
 public class BottomSheetFragment extends Fragment {
 
@@ -20,7 +27,34 @@ public class BottomSheetFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         BottomSheetBehavior bottomSheetBehaviour = BottomSheetBehavior.from(container);
         bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        return inflater.inflate(R.layout.fragment_bottom_sheet, container, false);
+
+        FragmentBottomSheetBinding binding_bottom_sheet = DataBindingUtil.inflate(inflater, R.layout.fragment_bottom_sheet, container,false);
+        View view_bottom_sheet = binding_bottom_sheet.getRoot();
+
+        RecyclerView courseRV = view_bottom_sheet.findViewById(R.id.idRVCourse);
+
+        // Here, we have created new array list and added data to it
+        ArrayList<CourseModel> courseModelArrayList = new ArrayList<CourseModel>();
+        courseModelArrayList.add(new CourseModel("DSA in Java", 4));
+        courseModelArrayList.add(new CourseModel("Java Course", 3));
+        courseModelArrayList.add(new CourseModel("C++ Course", 4));
+        courseModelArrayList.add(new CourseModel("DSA in C++", 4));
+        courseModelArrayList.add(new CourseModel("Kotlin for Android", 4));
+        courseModelArrayList.add(new CourseModel("Java for Android", 4));
+        courseModelArrayList.add(new CourseModel("HTML and CSS", 4));
+
+        // we are initializing our adapter class and passing our arraylist to it.
+        CourseAdapter courseAdapter = new CourseAdapter(view_bottom_sheet.getContext(), courseModelArrayList);
+
+        // below line is for setting a layout manager for our recycler view.
+        // here we are creating vertical list so we will provide orientation as vertical
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(view_bottom_sheet.getContext(), LinearLayoutManager.VERTICAL, false);
+
+        // in below two lines we are setting layoutmanager and adapter to our recycler view.
+        courseRV.setLayoutManager(linearLayoutManager);
+        courseRV.setAdapter(courseAdapter);
+
+        return view_bottom_sheet;
     }
 
     @Override
