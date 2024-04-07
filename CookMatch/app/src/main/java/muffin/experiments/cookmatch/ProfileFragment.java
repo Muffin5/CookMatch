@@ -1,10 +1,13 @@
 package muffin.experiments.cookmatch;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +26,14 @@ public class ProfileFragment extends Fragment {
         FragmentProfileBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false);
         View view = binding.getRoot();
 
-        final BottomSheetFragment bottomFragment = new BottomSheetFragment();
+        binding.imageViewSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new SettingsFragment());
+            }
+        });
+
+        final BSLProfileFragment bottomFragment = new BSLProfileFragment();
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerBottomSheet, bottomFragment)
                 .commit();
@@ -34,7 +44,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 if (newState == 3) {
-                    Toast.makeText(getActivity().getApplicationContext(), "Полностью открыт экран", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity().getApplicationContext(), "Полностью открыт экран", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -46,5 +56,12 @@ public class ProfileFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    private void replaceFragment(Fragment fragment){
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.place_holder, fragment);
+        fragmentTransaction.commit();
     }
 }

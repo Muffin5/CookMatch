@@ -11,38 +11,26 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import muffin.experiments.cookmatch.databinding.FragmentSettingsBinding;
+import muffin.experiments.cookmatch.databinding.FragmentSettingsAccountBinding;
 
-public class SettingsFragment extends Fragment {
-    private boolean flag = false;
+public class SettingsAccountFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        FragmentSettingsBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings, container, false);
+        FragmentSettingsAccountBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_settings_account, container, false);
         View view = binding.getRoot();
 
-        binding.timer.setVisibility(View.GONE);
-        binding.subAndLikes.setVisibility(View.GONE);
-
-        binding.notifications.setOnClickListener(new View.OnClickListener() {
+        binding.buttonSeeProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!flag) {
-                    binding.timer.setVisibility(View.VISIBLE);
-                    binding.subAndLikes.setVisibility(View.VISIBLE);
-                    flag = true;
-                }else{
-                    binding.timer.setVisibility(View.GONE);
-                    binding.subAndLikes.setVisibility(View.GONE);
-                    flag = false;
-                }
+                replaceFragment(new ProfileFragment());
             }
         });
 
-        binding.settingsAccount.setOnClickListener(new View.OnClickListener() {
+        binding.imageViewCloseSettings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                replaceFragment(new SettingsAccountFragment());
+                replaceFragment(new ProfileFragment());
             }
         });
 
@@ -55,5 +43,4 @@ public class SettingsFragment extends Fragment {
         fragmentTransaction.replace(R.id.place_holder, fragment);
         fragmentTransaction.commit();
     }
-
 }

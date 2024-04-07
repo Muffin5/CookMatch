@@ -1,10 +1,6 @@
 package muffin.experiments.cookmatch;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,13 +9,19 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
 
-import muffin.experiments.cookmatch.databinding.FragmentBottomSheetBinding;
+//import muffin.experiments.cookmatch.databinding.FragmentBottomSheetBinding;
+import muffin.experiments.cookmatch.databinding.FragmentBslProfileBinding;
 
-public class BottomSheetFragment extends Fragment {
+public class BSLProfileFragment extends Fragment {
 
     private View imgArrow;
 
@@ -29,7 +31,7 @@ public class BottomSheetFragment extends Fragment {
         BottomSheetBehavior bottomSheetBehaviour = BottomSheetBehavior.from(container);
         bottomSheetBehaviour.setState(BottomSheetBehavior.STATE_COLLAPSED);
 
-        FragmentBottomSheetBinding binding_bottom_sheet = DataBindingUtil.inflate(inflater, R.layout.fragment_bottom_sheet, container,false);
+        FragmentBslProfileBinding binding_bottom_sheet = DataBindingUtil.inflate(inflater, R.layout.fragment_bsl_profile, container,false);
         View view_bottom_sheet = binding_bottom_sheet.getRoot();
 
         RecyclerView courseRV = view_bottom_sheet.findViewById(R.id.idRVCourse);
@@ -69,5 +71,4 @@ public class BottomSheetFragment extends Fragment {
         // meaning that after 1/3 we assume sheet to be opened
         //imgArrow.setRotation(Math.min(180 * progress * 3, 180));
     }
-
 }

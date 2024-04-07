@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".SingInFragment">
+
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_width="296dp"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:text=""
+            android:hint="Введите пароль"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_avatar"
+            app:layout_constraintVertical_bias="0.074" />
+
+        <EditText
+            android:id="@+id/edit_email"
+            android:layout_width="296dp"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text=""
+            android:hint="Введите электронную почту"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_avatar"
+            app:layout_constraintVertical_bias="0.239" />
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="296dp"
+            android:layout_height="42dp"
+            android:ems="10"
+            android:inputType="phone"
+            android:text=""
+            android:hint="Введите номер телефона"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView_avatar"
+            app:layout_constraintVertical_bias="0.41" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageView_avatar"
+            android:layout_width="172dp"
+            android:layout_height="127dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/imagegegege"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.122"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.119" />
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_width="172dp"
+            android:layout_height="49dp"
+            android:ems="10"
+            android:inputType="text"
+            android:text=""
+            android:hint="Введите имя"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView_avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.172" />
+
+        <Button
+            android:id="@+id/button_singin"
+            android:layout_width="266dp"
+            android:layout_height="67dp"
+            android:backgroundTint="@color/black"
+            android:gravity="center"
+            android:text="Зарегистрироваться"
+            android:textSize="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edit_phone"
+            app:layout_constraintVertical_bias="0.379" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -5,7 +5,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileFragment">
+    tools:context=".OtherProfileFragment">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView_avatar"
@@ -33,45 +33,51 @@
 
     <TextView
         android:id="@+id/nickname"
-        android:layout_width="308dp"
-        android:layout_height="37dp"
-        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:text="Какой-то мужик"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.004" />
+        app:layout_constraintVertical_bias="0.02"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/subscribes"
-        android:layout_width="88dp"
-        android:layout_height="31dp"
-        android:text="TextView"
+        android:layout_width="110dp"
+        android:layout_height="41dp"
+        android:text="1000 подписчиков"
+        android:gravity="center"
+        android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.593"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.124" />
+        app:layout_constraintVertical_bias="0.104" />
 
     <TextView
         android:id="@+id/recipies"
-        android:layout_width="88dp"
-        android:layout_height="31dp"
-        android:text="TextView"
+        android:layout_width="100dp"
+        android:layout_height="41dp"
+        android:text="70\n рецептов"
+        android:textSize="17dp"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.123" />
+        app:layout_constraintVertical_bias="0.104" />
 
     <Button
         android:id="@+id/add_recipe"
         android:layout_width="177dp"
         android:layout_height="43dp"
-        android:text="Button"
+        android:text="Подписаться"
+        android:textSize="20dp"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.87"
