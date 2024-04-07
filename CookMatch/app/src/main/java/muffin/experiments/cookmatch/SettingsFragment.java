@@ -27,15 +27,9 @@ public class SettingsFragment extends Fragment {
         binding.notifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!flag) {
-                    binding.timer.setVisibility(View.VISIBLE);
-                    binding.subAndLikes.setVisibility(View.VISIBLE);
-                    flag = true;
-                }else{
-                    binding.timer.setVisibility(View.GONE);
-                    binding.subAndLikes.setVisibility(View.GONE);
-                    flag = false;
-                }
+                binding.timer.setVisibility(flag ? View.GONE : View.VISIBLE);
+                binding.subAndLikes.setVisibility(flag ? View.GONE : View.VISIBLE);
+                flag = !flag;
             }
         });
 

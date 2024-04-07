@@ -21,6 +21,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import muffin.experiments.cookmatch.databinding.FragmentSingInBinding;
 
 public class SingInFragment extends Fragment {
@@ -47,6 +50,10 @@ public class SingInFragment extends Fragment {
                 }else if(binding.editPhone.getText().toString().trim().equals("")){
                     Toast.makeText(getActivity().getApplicationContext(), binding.editPhone.getHint().toString(), Toast.LENGTH_SHORT).show();
                 }else {
+                    DatabaseReference num = FirebaseDatabase.getInstance().getReference("Users/"+binding.editName.getText().toString());
+                    num.child("Password").setValue(binding.editPassword.getText().toString());
+                    num.child("Phone").setValue(binding.editPhone.getText().toString());
+                    num.child("Email").setValue(binding.editEmail.getText().toString());
                     Intent intent = new Intent(getContext(), Home.class);
                     startActivity(intent);
                 }
