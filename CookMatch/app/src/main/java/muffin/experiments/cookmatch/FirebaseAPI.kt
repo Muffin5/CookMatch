@@ -6,11 +6,12 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import java.util.*
+import kotlin.collections.ArrayList
 
 public class FirebaseAPI {
 
-    fun takeAll(referenceName: String, completion: (MutableList<DataSnapshot>) -> Unit) {
-        val listOfPartners = mutableListOf<DataSnapshot>()
+    fun takeAll(referenceName: String, completion: (java.util.ArrayList<DataSnapshot>) -> Unit) {
+        val listOfPartners = arrayListOf<DataSnapshot>()
         FirebaseDatabase.getInstance().getReference(referenceName)
             .addListenerForSingleValueEvent(object :
                 ValueEventListener {
@@ -30,8 +31,8 @@ public class FirebaseAPI {
             })
     }
 
-    fun takeOne(referenceName: String, uid: Int, completion: (DataSnapshot) -> Unit) {
-        FirebaseDatabase.getInstance().getReference(referenceName).child(uid.toString())
+    fun takeOne(referenceName: String, uid: String, completion: (DataSnapshot) -> Unit) {
+        FirebaseDatabase.getInstance().getReference(referenceName).child(uid)
             .addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {

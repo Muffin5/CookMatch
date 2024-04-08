@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("com.google.gms.google-services")
+    kotlin("android")
 }
 
 android {
@@ -31,10 +32,16 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     buildFeatures {
         dataBinding = true
     }
 }
+
+val kotlin_version: String by rootProject.extra
 
 dependencies {
 
@@ -49,4 +56,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
+    implementation("androidx.core:core-ktx:1.3.2")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.0")
 }

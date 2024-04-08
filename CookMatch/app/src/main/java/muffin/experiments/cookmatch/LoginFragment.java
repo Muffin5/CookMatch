@@ -12,6 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+
+import java.util.ArrayList;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import muffin.experiments.cookmatch.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
@@ -51,6 +57,34 @@ public class LoginFragment extends Fragment {
                 }else if(binding.editPassword.getText().toString().trim().equals("")){
                     Toast.makeText(getActivity().getApplicationContext(), binding.editPassword.getHint().toString(), Toast.LENGTH_SHORT).show();
                 }else {
+
+                    boolean check = false;
+
+                    muffin.experiments.cookmatch.FirebaseAPI obj = new muffin.experiments.cookmatch.FirebaseAPI();
+                    String parameter;
+                    switch (binding.editParameter.getInputType()){
+                        case InputType.TYPE_CLASS_PHONE:
+                            parameter = "Phone";
+                            break;
+                        case InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS:
+                            parameter = "Email";
+                        default:
+                            parameter = "Name";
+                            break;
+                    }
+
+                    ArrayList<DataSnapshot> data = new ArrayList<>();
+
+                    obj.takeAll("Users", data);
+
+                    for (DataSnapshot parent: data) {
+                        for (DataSnapshot child : parent.getChildren()) {
+                            if(parameter.equals("Name") && child.getValue().toString().equals(binding.editParameter.getText().toString()))
+                                Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+
+                        }
+                    };
+
                     Intent intent = new Intent(getContext(), Home.class);
                     startActivity(intent);
                 }
