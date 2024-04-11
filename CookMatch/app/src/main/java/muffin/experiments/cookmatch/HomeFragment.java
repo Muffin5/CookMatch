@@ -49,13 +49,21 @@ public class HomeFragment extends Fragment {
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 if(newState == 3){
                     //Toast.makeText(getActivity().getApplicationContext(), "Полностью открыт экран", Toast.LENGTH_SHORT).show();
+                }else{
+                    binding.searchView.setVisibility(View.VISIBLE);
+                    binding.button.setVisibility(View.VISIBLE);
                 }
             }
 
             @Override
             public void onSlide(@NonNull View view, float v) {
-                if (v >= 0) {
+                if (v >= 0.5f) {
                     bottomFragment.setOpenProgress(v);
+                    binding.searchView.setVisibility(View.GONE);
+                    binding.button.setVisibility(View.GONE);
+                }else{
+                    //binding.searchView.setVisibility(View.VISIBLE);
+                    //binding.button.setVisibility(View.VISIBLE);
                 }
             }
         });

@@ -6,6 +6,6 @@
         android:bottom="8dp"
         android:right="8dp"
         android:top="8dp" />
-    <stroke android:width="15px" android:color="#FFFFFF" />
+    <stroke android:width="10px" android:color="#FFFFFF" />
 
 </shape>

@@ -19,23 +19,12 @@
         app:layout_constraintVertical_bias="0.079"
         tools:src="@tools:sample/avatars" />
 
-    <ImageView
-        android:id="@+id/imageView_settings"
-        android:layout_width="57dp"
-        android:layout_height="56dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.982"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.004"
-        tools:src="@tools:sample/avatars" />
-
     <TextView
         android:id="@+id/nickname"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
         android:text="Какой-то мужик"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,6 +39,7 @@
         android:text="1000 подписчиков"
         android:gravity="center"
         android:textSize="17dp"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.593"
@@ -64,6 +54,7 @@
         android:text="70\n рецептов"
         android:textSize="17dp"
         android:gravity="center"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.947"
@@ -72,18 +63,20 @@
         app:layout_constraintVertical_bias="0.104" />
 
     <Button
-        android:id="@+id/add_recipe"
-        android:layout_width="177dp"
-        android:layout_height="43dp"
+        android:id="@+id/subscribe"
+        android:layout_width="175dp"
+        android:layout_height="42dp"
+        android:backgroundTint="@color/grey"
+        android:gravity="center"
         android:text="Подписаться"
+        android:textColor="@color/white"
         android:textSize="20dp"
-        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.184" />
+        app:layout_constraintVertical_bias="0.214" />
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"

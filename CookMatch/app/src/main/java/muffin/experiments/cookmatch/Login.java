@@ -22,9 +22,14 @@ public class Login extends AppCompatActivity {
 
         ActivityLoginBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
+        binding.switchLogin.setTextColor(getResources().getColor(R.color.white));
+        binding.switchSingin.setTextColor(getResources().getColor(R.color.disactivated));
+
         binding.switchLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                binding.switchLogin.setTextColor(getResources().getColor(R.color.white));
+                binding.switchSingin.setTextColor(getResources().getColor(R.color.disactivated));
                 replaceFragment(new LoginFragment());
             }
         });
@@ -32,6 +37,8 @@ public class Login extends AppCompatActivity {
         binding.switchSingin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                binding.switchLogin.setTextColor(getResources().getColor(R.color.disactivated));
+                binding.switchSingin.setTextColor(getResources().getColor(R.color.white));
                 replaceFragment(new SingInFragment());
             }
         });

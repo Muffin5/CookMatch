@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +26,17 @@ public class LoginFragment extends Fragment {
         FragmentLoginBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
         View view = binding.getRoot();
 
+        binding.changeName.setTextColor(getResources().getColor(R.color.white));
+        binding.changeEmail.setTextColor(getResources().getColor(R.color.disactivated));
+        binding.changePhone.setTextColor(getResources().getColor(R.color.disactivated));
+
         binding.changeName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                binding.changeName.setTextColor(getResources().getColor(R.color.white));
+                binding.changeEmail.setTextColor(getResources().getColor(R.color.disactivated));
+                binding.changePhone.setTextColor(getResources().getColor(R.color.disactivated));
+
                 binding.editParameter.setHint("Введите имя");
                 binding.editParameter.setInputType(InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
             }
@@ -36,6 +45,9 @@ public class LoginFragment extends Fragment {
         binding.changeEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                binding.changeName.setTextColor(getResources().getColor(R.color.disactivated));
+                binding.changeEmail.setTextColor(getResources().getColor(R.color.white));
+                binding.changePhone.setTextColor(getResources().getColor(R.color.disactivated));
                 binding.editParameter.setHint("Введите электронную почту");
                 binding.editParameter.setInputType(InputType.TYPE_TEXT_VARIATION_WEB_EMAIL_ADDRESS);
             }
@@ -44,6 +56,9 @@ public class LoginFragment extends Fragment {
         binding.changePhone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                binding.changeName.setTextColor(getResources().getColor(R.color.disactivated));
+                binding.changeEmail.setTextColor(getResources().getColor(R.color.disactivated));
+                binding.changePhone.setTextColor(getResources().getColor(R.color.white));
                 binding.editParameter.setHint("Введите номер телефона");
                 binding.editParameter.setInputType(InputType.TYPE_CLASS_PHONE);
             }
@@ -60,7 +75,7 @@ public class LoginFragment extends Fragment {
 
                     boolean check = false;
 
-                    muffin.experiments.cookmatch.FirebaseAPI obj = new muffin.experiments.cookmatch.FirebaseAPI();
+                    FirebaseJavaAPI obj = new FirebaseJavaAPI();
                     String parameter;
                     switch (binding.editParameter.getInputType()){
                         case InputType.TYPE_CLASS_PHONE:
@@ -72,18 +87,30 @@ public class LoginFragment extends Fragment {
                             parameter = "Name";
                             break;
                     }
+                    /*
 
                     ArrayList<DataSnapshot> data = new ArrayList<>();
 
-                    obj.takeAll("Users", data);
+                    data = obj.takeAll("Users");
+                    */
 
-                    for (DataSnapshot parent: data) {
+                    /*Log.i("Text", binding.editParameter.getText().toString());
+
+
+                    DataSnapshot buf = obj.takeOne("Users", binding.editParameter.getText().toString());
+                    Log.i("Text", buf.getValue().toString());
+
+                    if(buf.getValue().toString().equals(binding.editParameter.getText().toString())){
+                        Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
+                    }*/
+
+                    /*for (DataSnapshot parent: data) {
                         for (DataSnapshot child : parent.getChildren()) {
                             if(parameter.equals("Name") && child.getValue().toString().equals(binding.editParameter.getText().toString()))
                                 Toast.makeText(getActivity().getApplicationContext(), "Success", Toast.LENGTH_SHORT).show();
 
                         }
-                    };
+                    };*/
 
                     Intent intent = new Intent(getContext(), Home.class);
                     startActivity(intent);

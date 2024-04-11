@@ -54,45 +54,38 @@
 
         <EditText
             android:id="@+id/edit_parameter"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_width="318dp"
+            android:layout_height="50dp"
             android:layout_marginTop="36dp"
+            android:background="@drawable/round_courners_searchbar"
             android:ems="10"
             android:hint="Введите имя"
             android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/disactivated"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.244"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
             android:id="@+id/edit_password"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
+            android:layout_width="318dp"
+            android:layout_height="50dp"
+            android:background="@drawable/round_courners_searchbar"
             android:ems="10"
             android:hint="Введите пароль"
             android:inputType="textPassword"
+            android:textColor="@color/white"
+            android:textColorHint="@color/disactivated"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.244"
+            app:layout_constraintHorizontal_bias="0.493"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/edit_parameter"
-            app:layout_constraintVertical_bias="0.063" />
-
-        <TextView
-            android:id="@+id/forget_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Забыли пароль?"
-            android:textSize="17dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.134"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edit_password"
-            app:layout_constraintVertical_bias="0.051" />
+            app:layout_constraintVertical_bias="0.064" />
 
         <TextView
             android:id="@+id/login_with_google"
@@ -100,25 +93,26 @@
             android:layout_height="wrap_content"
             android:text="Войти через Google"
             android:textSize="17dp"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.148"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/forget_password"
+            app:layout_constraintTop_toBottomOf="@+id/edit_password"
             app:layout_constraintVertical_bias="0.092" />
 
         <Button
             android:id="@+id/button_login"
             android:layout_width="171dp"
             android:layout_height="47dp"
-            android:backgroundTint="@color/black"
+            android:backgroundTint="@color/disactivated"
+            android:textColor="@color/black"
             android:text="Войти"
             android:textSize="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_with_google"
-            app:layout_constraintVertical_bias="0.136" />
+            app:layout_constraintVertical_bias="0.391" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

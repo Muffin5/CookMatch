@@ -43,18 +43,42 @@ public class ProfileFragment extends Fragment {
         bottomSheetBehaviour.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
-                if (newState == 3) {
+                if(newState == 3){
                     //Toast.makeText(getActivity().getApplicationContext(), "Полностью открыт экран", Toast.LENGTH_SHORT).show();
+                }else{
+                    binding.imageViewSettings.setVisibility(View.VISIBLE);
+                    binding.addRecipe.setVisibility(View.VISIBLE);
+                    binding.imageViewAvatar.setVisibility(View.VISIBLE);
+                    binding.nickname.setVisibility(View.VISIBLE);
+                    binding.recipies.setVisibility(View.VISIBLE);
+                    binding.subscribes.setVisibility(View.VISIBLE);
                 }
             }
 
             @Override
             public void onSlide(@NonNull View view, float v) {
-                if (v >= 0) {
+                if (v >= 0.5f) {
                     bottomFragment.setOpenProgress(v);
+                    binding.subscribes.setVisibility(View.GONE);
+                    binding.recipies.setVisibility(View.GONE);
+                    binding.nickname.setVisibility(View.GONE);
+                    binding.imageViewAvatar.setVisibility(View.GONE);
+                    binding.addRecipe.setVisibility(View.GONE);
+                    binding.imageViewSettings.setVisibility(View.GONE);
+                }else{
+                    //binding.searchView.setVisibility(View.VISIBLE);
+                    //binding.button.setVisibility(View.VISIBLE);
                 }
             }
         });
+
+        binding.addRecipe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                replaceFragment(new OtherProfileFragment());
+            }
+        });
+
         return view;
     }
 
