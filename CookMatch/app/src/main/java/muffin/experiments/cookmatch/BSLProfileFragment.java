@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
@@ -46,8 +47,19 @@ public class BSLProfileFragment extends Fragment {
         courseModelArrayList.add(new CourseModel("Java for Android", 4));
         courseModelArrayList.add(new CourseModel("HTML and CSS", 4));
 
+        /*recycler.setAdapter(new ContentAdapter(items, new ContentAdapter.OnItemClickListener() {
+            @Override public void onItemClick(ContentItem item) {
+                Toast.makeText(getContext(), "Item Clicked", Toast.LENGTH_LONG).show();
+            }
+        }));*/
+
         // we are initializing our adapter class and passing our arraylist to it.
-        CourseAdapter courseAdapter = new CourseAdapter(view_bottom_sheet.getContext(), courseModelArrayList);
+        CourseAdapter courseAdapter = new CourseAdapter(getContext(), courseModelArrayList, new CourseAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClick(CourseModel item) {
+                Toast.makeText(getContext(), item.getCourse_name().toString(), Toast.LENGTH_LONG).show();
+            }
+        });
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical

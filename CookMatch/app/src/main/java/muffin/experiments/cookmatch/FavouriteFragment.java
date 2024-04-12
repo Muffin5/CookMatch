@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,12 @@ public class FavouriteFragment extends Fragment {
         courseModelArrayList.add(new CourseModel("HTML and CSS", 4));
 
         // we are initializing our adapter class and passing our arraylist to it.
-        CourseAdapter courseAdapter = new CourseAdapter(view.getContext(), courseModelArrayList);
+        CourseAdapter courseAdapter = new CourseAdapter(getContext(), courseModelArrayList, new CourseAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClick(CourseModel item) {
+                Toast.makeText(getContext(), item.getCourse_name().toString(), Toast.LENGTH_LONG).show();
+            }
+        });
 
         // below line is for setting a layout manager for our recycler view.
         // here we are creating vertical list so we will provide orientation as vertical
