@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -49,6 +51,7 @@ public class BottomSheetFragment extends Fragment {
         CourseAdapter courseAdapter = new CourseAdapter(getContext(), courseModelArrayList, new CourseAdapter.OnItemClickListener(){
             @Override
             public void onItemClick(CourseModel item) {
+                replaceFragment(new RecipeFragment(), item.getCourse_name().toString());
                 Toast.makeText(getContext(), item.getCourse_name().toString(), Toast.LENGTH_LONG).show();
             }
         });
@@ -74,6 +77,16 @@ public class BottomSheetFragment extends Fragment {
         // Rotate arrow in 1/3 of the screen to 180
         // meaning that after 1/3 we assume sheet to be opened
         //imgArrow.setRotation(Math.min(180 * progress * 3, 180));
+    }
+
+    private void replaceFragment(Fragment fragment, String value){
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Bundle bundle = new Bundle();
+        bundle.putString("name", value);
+        fragment.setArguments(bundle);
+        fragmentTransaction.replace(R.id.place_holder, fragment);
+        fragmentTransaction.commit();
     }
 
 }

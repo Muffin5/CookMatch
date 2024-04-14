@@ -2,6 +2,7 @@ package muffin.experiments.cookmatch;
 
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -22,7 +23,7 @@ public class ChooseIngredientsFragment extends Fragment {
 
         replaceFragment(new ChoosedIngredientsFragment());
 
-        binding.searchIngredients.setOnSearchClickListener(new View.OnClickListener() {
+        /*binding.searchIngredients.setOnSearchClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 replaceFragment(new SearchIngredientsFragment());
@@ -34,7 +35,7 @@ public class ChooseIngredientsFragment extends Fragment {
             public void onClick(View view) {
                 replaceFragment(new SearchIngredientsFragment());
             }
-        });
+        });*/
 
         return view;
     }
