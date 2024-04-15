@@ -59,7 +59,7 @@ public class ChoosedIngredientsFragment extends Fragment {
         text.setTextSize(30);
 
         text.setGravity(Gravity.CENTER);
-        text.setText("Сережа");
+        text.setText("Жмых");
         text.setTextColor(getResources().getColor(R.color.white));
 
         ImageView img = new ImageView(getContext());
@@ -108,7 +108,7 @@ public class ChoosedIngredientsFragment extends Fragment {
         text2.setTextSize(30);
 
         text2.setGravity(Gravity.CENTER);
-        text2.setText("Сбрил брови сыну");
+        text2.setText("Сон для слабых");
         text2.setTextColor(getResources().getColor(R.color.white));
 
         ImageView img2 = new ImageView(getContext());
