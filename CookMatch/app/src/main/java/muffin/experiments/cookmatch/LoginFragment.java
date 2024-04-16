@@ -6,7 +6,9 @@ import android.os.Bundle;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,6 +24,10 @@ import kotlin.jvm.functions.Function1;
 import muffin.experiments.cookmatch.databinding.FragmentLoginBinding;
 
 public class LoginFragment extends Fragment {
+
+    private boolean flag_parameter = false;
+    private boolean flag_password = false;
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         FragmentLoginBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_login, container, false);
         View view = binding.getRoot();
@@ -29,6 +35,8 @@ public class LoginFragment extends Fragment {
         binding.changeName.setTextColor(getResources().getColor(R.color.white));
         binding.changeEmail.setTextColor(getResources().getColor(R.color.disactivated));
         binding.changePhone.setTextColor(getResources().getColor(R.color.disactivated));
+
+        binding.buttonLogin.getBackground().setAlpha(100);
 
         binding.changeName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +69,60 @@ public class LoginFragment extends Fragment {
                 binding.changePhone.setTextColor(getResources().getColor(R.color.white));
                 binding.editParameter.setHint("Введите номер телефона");
                 binding.editParameter.setInputType(InputType.TYPE_CLASS_PHONE);
+            }
+        });
+
+        binding.editParameter.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if (binding.editParameter.getText().toString().equals("")) {
+                    flag_parameter = false;
+                } else {
+                    flag_parameter = true;
+                }
+
+                if (!flag_password || !flag_parameter) {
+                    binding.buttonLogin.getBackground().setAlpha(100);
+                } else {
+                    binding.buttonLogin.getBackground().setAlpha(255);
+                }
+            }
+        });
+
+        binding.editPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(binding.editPassword.getText().toString().equals("")){
+                    flag_password = false;
+                }else{
+                    flag_password = true;
+                }
+
+                if(!flag_password || !flag_parameter) {
+                    binding.buttonLogin.getBackground().setAlpha(100);
+                }else{
+                    binding.buttonLogin.getBackground().setAlpha(255);
+                }
             }
         });
 

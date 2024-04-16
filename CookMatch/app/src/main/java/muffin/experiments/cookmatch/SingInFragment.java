@@ -15,6 +15,8 @@ import android.os.Bundle;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +30,11 @@ import muffin.experiments.cookmatch.databinding.FragmentSingInBinding;
 
 public class SingInFragment extends Fragment {
 
+    private boolean flag_name = false;
+    private boolean flag_phone = false;
+    private boolean flag_email = false;
+    private boolean flag_password = false;
+
     private ImageView ImagePreview;
 
     final int SELECT_PICTURE = 200;
@@ -37,6 +44,109 @@ public class SingInFragment extends Fragment {
         View view = binding.getRoot();
 
         ImagePreview = binding.imageViewAvatar;
+
+        binding.buttonSingin.getBackground().setAlpha(100);
+
+        binding.editPhone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(binding.editPhone.getText().toString().equals("")){
+                    flag_phone = false;
+                }else{
+                    flag_phone = true;
+                }
+                if(!flag_phone || !flag_name || !flag_email || !flag_password){
+                    binding.buttonSingin.getBackground().setAlpha(100);
+                }else{
+                    binding.buttonSingin.getBackground().setAlpha(255);
+                }
+            }
+        });
+
+        binding.editName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(binding.editName.getText().toString().equals("")){
+                    flag_name = false;
+                }else{
+                    flag_name = true;
+                }
+                if(!flag_phone || !flag_name || !flag_email || !flag_password){
+                    binding.buttonSingin.getBackground().setAlpha(100);
+                }else{
+                    binding.buttonSingin.getBackground().setAlpha(255);
+                }
+            }
+        });
+
+        binding.editEmail.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(binding.editEmail.getText().toString().equals("")){
+                    binding.buttonSingin.getBackground().setAlpha(100);
+                }else{
+                    binding.buttonSingin.getBackground().setAlpha(255);
+                }
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(binding.editEmail.getText().toString().equals("")){
+                    flag_email = false;
+                }else{
+                    flag_email = true;
+                }
+                if(!flag_phone || !flag_name || !flag_email || !flag_password){
+                    binding.buttonSingin.getBackground().setAlpha(100);
+                }else{
+                    binding.buttonSingin.getBackground().setAlpha(255);
+                }
+            }
+        });
+
+        binding.editPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(binding.editPassword.getText().toString().equals("")) {
+                    flag_password = false;
+                }else{
+                    flag_password = true;
+                }
+                if(!flag_phone || !flag_name || !flag_email || !flag_password){
+                    binding.buttonSingin.getBackground().setAlpha(100);
+                }else{
+                    binding.buttonSingin.getBackground().setAlpha(255);
+                }
+            }
+        });
 
         binding.buttonSingin.setOnClickListener(new View.OnClickListener() {
             @Override

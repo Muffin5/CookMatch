@@ -8,6 +8,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -28,6 +30,19 @@ public class Home extends AppCompatActivity {
         replaceFragment(new HomeFragment());
 
         ActivityHomeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_home);
+
+        ColorStateList iconColorStates = new ColorStateList(
+                new int[][]{
+                        new int[]{-android.R.attr.state_checked},
+                        new int[]{android.R.attr.state_checked}
+                },
+                new int[]{
+                        Color.parseColor("#FFFFFFFF"),
+                        Color.parseColor("#FFFFFFFF")
+                });
+
+        binding.bottomNavigationView.setItemIconTintList(iconColorStates);
+        binding.bottomNavigationView.setItemTextColor(iconColorStates);
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if(item.getItemId() == R.id.nav_home){

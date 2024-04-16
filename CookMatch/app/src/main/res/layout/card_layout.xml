@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="5dp"
-    app:cardBackgroundColor="@color/grey"
+    app:cardBackgroundColor="@color/disactivated"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
     app:cardMaxElevation="10dp"
@@ -38,7 +38,7 @@
             android:layout_marginTop="16dp"
             android:text="Название рецепта"
             android:textSize="18dp"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/card_image"
             app:layout_constraintHorizontal_bias="0.341"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/profile_fill" />
+                android:src="@drawable/icon_profile_fill_black" />
 
             <TextView
                 android:id="@+id/card_name_autor"
@@ -71,7 +71,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
                 android:text="Феденька"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
 
 
@@ -92,7 +92,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/profile_fill" />
+                android:src="@drawable/icon_time" />
 
             <TextView
                 android:id="@+id/card_time_cooking"
@@ -102,7 +102,7 @@
                 android:text="1 минут     "
                 android:layout_marginLeft="10dp"
                 android:layout_gravity="center"
-                android:textColor="@color/white"/>
+                android:textColor="@color/black"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,7 +28,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"
-        android:background="@drawable/round_courners_nav"/>
+        android:background="@drawable/round_courners_nav"
+        app:itemIconTint="@drawable/selector_nav_tab_background"
+        android:theme="@style/NavTheme"/>/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
